@@ -1,0 +1,58 @@
+:root {
+  --base: #1e1e2e;
+  --mantle: #181825;
+  --crust: #11111b;
+  --text: #cdd6f4;
+  --subtext1: #bac2de;
+  --rosewater: #f5e0dc;
+  --flamingo: #f2cdcd;
+  --mauve: #cba6f7;
+  --green: #a6e3a1;
+  --red: #f38ba8;
+  --yellow: #f9e2af;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--base);
+  color: var(--text);
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.question-card {
+  background-color: var(--mantle);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.choice-button {
+  display: block;
+  width: 100%;
+  background-color: var(--mauve);
+  color: var(--base);
+  border: none;
+  padding: 0.75rem;
+  border-radius: 8px;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.choice-button:hover {
+  background-color: var(--rosewater);
+}
+
+.result-card {
+  background-color: var(--crust);
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: center;
+}
