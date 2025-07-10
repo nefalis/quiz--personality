@@ -85,7 +85,7 @@ export const questions = [
 {
     text: "Un admin fait une annonce :",
     choices: [
-        { text: "Tu lis en diagonale et demandes ce que ça veut dire.", personality: "Pipelette" },
+        { text: "Tu lis en diagonale et tu poses plein de question dessus.", personality: "Pipelette" },
         { text: "Tu analyses le message dans les détails", personality: "Rebel" },
         { text: "Tu ne lis même pas. Tu sais déjà que tu vas râler.", personality: "Aigri" },
         { text: "Tu mets un 👍 et tu retournes faire autre chose.", personality: "Normal" },
