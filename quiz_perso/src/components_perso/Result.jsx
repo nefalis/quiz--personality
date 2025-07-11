@@ -8,12 +8,11 @@ Normal: "Tu es Normal, dans un monde où tout le monde semble un peu bizarre. Tu
 };
 
 function Result({ results }) {
-    const topResults = results.slice(0, 2);
 
     return (
         <div className="result-card">
         <h2>Ton profil  :</h2>
-        {topResults.map(({ personality, percentage }) => (
+        {results.map(({ personality, percentage }) => (
             <div key={personality} className="result-block">
             <h3>{personality} - {percentage}%</h3>
             <p>{descriptions[personality]}</p>
