@@ -21,6 +21,7 @@ function App() {
     setSelectedQuiz(null);
   };
 
+  
   if (!selectedQuiz) {
     return <Home onSelectQuiz={handleSelectQuiz} />;
   }

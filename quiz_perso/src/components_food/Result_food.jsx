@@ -7,14 +7,20 @@ Welsh: "Tu vis pour le fromage fondu. Ton cœur est fait de cheddar, ta foi en l
 Troll: "Toi tu cherches la drouille !"
 };
 
-function Result({ personality }) {
-return (
-    <div className="result-card">
-    <h2>Ton profil culinaire :</h2>
-    <h3>{personality}</h3>
-    <p>{descriptions[personality]}</p>
-    </div>
-);
+function Result({ results }) {
+    const topResults = results.slice(0, 2);
+
+    return (
+        <div className="result-card">
+        <h2>Ton profil culinaire :</h2>
+        {topResults.map(({ personality, percentage }) => (
+            <div key={personality} className="result-block">
+            <h3>{personality} - {percentage}%</h3>
+            <p>{descriptions[personality]}</p>
+            </div>
+        ))}
+        </div>
+    );
 }
 
 export default Result;

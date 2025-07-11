@@ -7,14 +7,20 @@ Rebel: "Tu es un Rebel ! Tu détestes l’injustice, les abus de pouvoir, et les
 Normal: "Tu es Normal, dans un monde où tout le monde semble un peu bizarre. Tu ne cries pas, tu ne trolles pas, tu ne parles pas trop, tu n’es ni trop naïf, ni trop révolté. Tu fais les choses bien, à ton rythme, et tu ne cherches pas à te démarquer à tout prix. Mais c’est justement ça qui te rend spécial : tu es le point d’équilibre dans ce cirque ambiant. Un repère stable au milieu du chaos. "
 };
 
-function Result({ personality }) {
-return (
-    <div className="result-card">
-    <h2>Ton profil de personnalité :</h2>
-    <h3>{personality}</h3>
-    <p>{descriptions[personality]}</p>
-    </div>
-);
+function Result({ results }) {
+    const topResults = results.slice(0, 2);
+
+    return (
+        <div className="result-card">
+        <h2>Ton profil  :</h2>
+        {topResults.map(({ personality, percentage }) => (
+            <div key={personality} className="result-block">
+            <h3>{personality} - {percentage}%</h3>
+            <p>{descriptions[personality]}</p>
+            </div>
+        ))}
+        </div>
+    );
 }
 
 export default Result;

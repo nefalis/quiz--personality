@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export const questions = [
 {
     text: "Que choisis-tu comme snack à minuit ?",
@@ -208,23 +210,51 @@ export const questions = [
 ];
 
 function Question({ question, onAnswer, currentQuestionIndex, totalQuestions }) {
-return (
-    <div className="question-card">
-    <p>
-        Question {currentQuestionIndex + 1} / {totalQuestions}
-    </p>
-    <h2>{question.text}</h2>
-    {question.choices.map((choice, index) => (
+    const [selectedChoices, setSelectedChoices] = useState([]);
+
+    const toggleChoice = (personality) => {
+        setSelectedChoices(prev =>
+        prev.includes(personality)
+            ? prev.filter(p => p !== personality)
+            : [...prev, personality]
+        );
+    };
+
+    const handleSubmit = () => {
+        if (selectedChoices.length === 0) return;
+        onAnswer(selectedChoices);
+        setSelectedChoices([]);
+    };
+
+    return (
+        <div className="question-card">
+        <p>
+            Question {currentQuestionIndex + 1} / {totalQuestions}
+        </p>
+        <h2>{question.text}</h2>
+        <ul>
+            {question.choices.map((choice, index) => (
+            <li key={index}>
+                <label className="choice-item">
+                <input
+                    type="checkbox"
+                    checked={selectedChoices.includes(choice.personality)}
+                    onChange={() => toggleChoice(choice.personality)}
+                />
+                {choice.text}
+                </label>
+            </li>
+            ))}
+        </ul>
         <button
-        key={index}
-        className="choice-button"
-        onClick={() => onAnswer(choice.personality)}
+            onClick={handleSubmit}
+            className={`choice-button validate-button ${selectedChoices.length === 0 ? 'disabled' : ''}`}
+            disabled={selectedChoices.length === 0}
         >
-        {choice.text}
+            Valider
         </button>
-    ))}
-    </div>
-);
+        </div>
+    );
 }
 
 export default Question;
