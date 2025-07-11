@@ -10,7 +10,7 @@ Normal: "Tu es Normal, dans un monde où tout le monde semble un peu bizarre. Tu
 function Result({ personality }) {
 return (
     <div className="result-card">
-    <h2>Ton profil de personalité :</h2>
+    <h2>Ton profil de personnalité :</h2>
     <h3>{personality}</h3>
     <p>{descriptions[personality]}</p>
     </div>

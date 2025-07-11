@@ -56,3 +56,18 @@ body {
   border-radius: 12px;
   text-align: center;
 }
+
+.back-button {
+  background-color: #e0e0e0;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.back-button:hover {
+  background-color: #d6d6d6;
+}
+

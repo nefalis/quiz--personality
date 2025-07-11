@@ -1,49 +1,52 @@
-
 import { useState } from "react";
-import Question, { questions } from "./components/Questions";
-import Result from "./components/Result";
+import Home from "./components/Home";
+import QuizContainer from "./components/QuizContainer";
+
+import QuestionPerso, { questions as persoQuestions } from "./components_perso/Questions";
+import ResultPerso from "./components_perso/Result";
+
+import QuestionFood, { questions as foodQuestions } from "./components_food/Question_food";
+import ResultFood from "./components_food/Result_food";
+
 import './App.css';
 
 function App() {
-  const [current, setCurrent] = useState(0);
-  const [answers, setAnswers] = useState([]);
-  const [showResult, setShowResult] = useState(false);
+  const [selectedQuiz, setSelectedQuiz] = useState(null);
 
-  // stock reponse dans un tableau
-  const handleAnswer = (personality) => {
-    setAnswers([...answers, personality]);
-    const next = current + 1;
-    if (next < questions.length) {
-      setCurrent(next);
-    } else {
-      setShowResult(true);
-    }
+  const handleSelectQuiz = (quizKey) => {
+    setSelectedQuiz(quizKey);
   };
 
-  // compte combien de fois chaque categorie apparait
-  const getResult = () => {
-    const count = {};
-    answers.forEach(p => {
-      count[p] = (count[p] || 0) + 1;
-    });
-    // donne categorie dominante
-    return Object.entries(count).sort((a, b) => b[1] - a[1])[0][0];
+  const handleBackToHome = () => {
+    setSelectedQuiz(null);
   };
 
-  return (
-    <div className="container">
-      {!showResult ? (
-        <Question
-          question={questions[current]}
-          currentQuestionIndex={current}
-          totalQuestions={questions.length}
-          onAnswer={handleAnswer}
+  if (!selectedQuiz) {
+    return <Home onSelectQuiz={handleSelectQuiz} />;
+  }
+
+  switch (selectedQuiz) {
+    case "perso":
+      return (
+        <QuizContainer
+          questions={persoQuestions}
+          QuestionComponent={QuestionPerso}
+          ResultComponent={ResultPerso}
+          onBack={handleBackToHome}
         />
-      ) : (
-        <Result personality={getResult()} />
-      )}
-    </div>
-  );
+      );
+    case "food":
+      return (
+        <QuizContainer
+          questions={foodQuestions}
+          QuestionComponent={QuestionFood}
+          ResultComponent={ResultFood}
+          onBack={handleBackToHome}
+        />
+      );
+    default:
+      return <Home onSelectQuiz={handleSelectQuiz} />;
+  }
 }
 
 export default App;
