@@ -8,6 +8,9 @@ import ResultPerso from "./components_perso/Result";
 import QuestionFood, { questions as foodQuestions } from "./components_food/Question_food";
 import ResultFood from "./components_food/Result_food";
 
+import QuestionCat, { questions as catQuestions } from "./components_cat/Question_cat";
+import ResultCat from "./components_cat/Result_cat";
+
 import './App.css';
 
 function App() {
@@ -42,6 +45,15 @@ function App() {
           questions={foodQuestions}
           QuestionComponent={QuestionFood}
           ResultComponent={ResultFood}
+          onBack={handleBackToHome}
+        />
+      );
+    case "cat":
+      return (
+        <QuizContainer
+          questions={catQuestions}
+          QuestionComponent={QuestionCat}
+          ResultComponent={ResultCat}
           onBack={handleBackToHome}
         />
       );
