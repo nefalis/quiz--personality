@@ -208,3 +208,53 @@ export const questions = [
     ],
     },
 ];
+
+function Question({ question, onAnswer, currentQuestionIndex, totalQuestions }) {
+    const [selectedChoices, setSelectedChoices] = useState([]);
+
+    const toggleChoice = (personality) => {
+        setSelectedChoices(prev =>
+        prev.includes(personality)
+            ? prev.filter(p => p !== personality)
+            : [...prev, personality]
+        );
+    };
+
+    const handleSubmit = () => {
+        if (selectedChoices.length === 0) return;
+        onAnswer(selectedChoices);
+        setSelectedChoices([]);
+    };
+
+    return (
+        <div className="question-card">
+        <p>
+            Question {currentQuestionIndex + 1} / {totalQuestions}
+        </p>
+        <h2>{question.text}</h2>
+        <ul>
+            {question.choices.map((choice, index) => (
+            <li key={index}>
+                <label className="choice-item">
+                <input
+                    type="checkbox"
+                    checked={selectedChoices.includes(choice.personality)}
+                    onChange={() => toggleChoice(choice.personality)}
+                />
+                {choice.text}
+                </label>
+            </li>
+            ))}
+        </ul>
+        <button
+            onClick={handleSubmit}
+            className={`choice-button validate-button ${selectedChoices.length === 0 ? 'disabled' : ''}`}
+            disabled={selectedChoices.length === 0}
+        >
+            Valider
+        </button>
+        </div>
+    );
+}
+
+export default Question;
