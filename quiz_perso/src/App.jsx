@@ -11,7 +11,7 @@ import ResultFood from "./components_food/Result_food";
 import QuestionCat, { questions as catQuestions } from "./components_cat/Question_cat";
 import ResultCat from "./components_cat/Result_cat";
 
-import QuestionPurety, { questions as puretyQuestions } from "./components_";
+import QuestionPurety, { questions as puretyQuestions } from "./components_purety/Question_purety";
 import ResultPurety from "./components_purety/Result_purety";
 
 import './App.css';
