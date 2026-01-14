@@ -1,10 +1,10 @@
 const descriptions = {
-    Impur: "Tu assumes. Vraiment. Ton niveau de pureté est une rumeur lointaine.",
-    Sage: "Calme, réfléchi·e, raisonnable. Tu es la personne qu’on appelle quand tout part en vrille.",
-    Équilibré: "Tu sais t’amuser sans perdre le contrôle. Rare. Presque suspect.",
-    Malicieux: "Tu aimes flirter avec la limite, sans toujours la dépasser. Enfin… pas toujours.",
-    Rebelle: "Les règles sont des suggestions. Et tu vis très bien avec cette idée.",
-    Chaotique: "Personne ne sait ce que tu vas faire. Parfois, même pas toi.",
+    Impur: "Tu es celui ou celle qui n’a jamais lu le manuel… et qui s’en porte très bien. Tout ce qui est interdit t’attire comme un aimant, et tu assumes tes choix avec un sourire coupable.",
+    Sage: "Calme, posé·e et raisonnable. Tu es celui ou celle qu’on appelle quand tout part en vrille. La vie te suit sans trop de surprises… sauf quand tu cèdes à une petite folie secrète.",
+    Équilibré: "Tu sais jongler entre fun et responsabilité. Tu peux être sage comme une image ou faire une petite bêtise, selon ton humeur. Bref, tu es le parfait compromis… mais un peu suspect quand même.",
+    Malicieux: "Tu adores titiller les limites, sourire quand personne ne regarde, et provoquer un peu pour le plaisir. Tes amis savent que rien n’est jamais vraiment sûr avec toi… et ils adorent ça.",
+    Rebelle: "Les règles sont des suggestions, et tu vis selon ton propre manuel. Tu sais ce que tu veux et tu ne te laisses pas marcher sur les pieds. Prépare-toi, l’ennui te fuit comme la peste.",
+    Chaotique: "Tout le monde se demande ce que tu vas faire ensuite… et toi aussi. Ta vie est une suite de surprises, de petits désastres et de grands éclats de rire. On t’adore… ou on se méfie.",
 };
 
 function Result({ results }) {

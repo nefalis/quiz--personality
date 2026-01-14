@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 export const questions = [
     {
     text: "Ton rapport aux règles :",
@@ -14,9 +16,9 @@ export const questions = [
     text: "Quand on te propose un plan douteux :",
     choices: [
         { text: "Je suis déjà dedans.", personality: "Impur" },
+        { text: "J’accepte.", personality: "Rebelle" },
         { text: "Je refuse.", personality: "Sage" },
         { text: "Je souris.", personality: "Malicieux" },
-        { text: "J’accepte.", personality: "Rebelle" },
         { text: "Je l’améliore.", personality: "Chaotique" },
     ],
     },
@@ -25,21 +27,21 @@ export const questions = [
     choices: [
         { text: "Un dossier classé X.", personality: "Impur" },
         { text: "Des dîners calmes.", personality: "Sage" },
-        { text: "Un joyeux mélange.", personality: "Équilibré" },
         { text: "Des anecdotes gênantes.", personality: "Malicieux" },
         { text: "Des trous de mémoire.", personality: "Rebelle" },
+        { text: "Un joyeux mélange.", personality: "Équilibré" },
         { text: "Des preuves supprimées.", personality: "Chaotique" },
     ],
     },
     {
     text: "Face à une tentation :",
     choices: [
-        { text: "J’ai déjà cédé.", personality: "Impur" },
-        { text: "Je résiste.", personality: "Sage" },
         { text: "Ça dépend.", personality: "Équilibré" },
         { text: "Je teste un peu.", personality: "Malicieux" },
         { text: "Je fonce.", personality: "Rebelle" },
         { text: "Je fais pire.", personality: "Chaotique" },
+        { text: "J’ai déjà cédé.", personality: "Impur" },
+        { text: "Je résiste.", personality: "Sage" },
     ],
     },
     {
@@ -47,20 +49,20 @@ export const questions = [
     choices: [
         { text: "Ils sont nombreux.", personality: "Impur" },
         { text: "Je n’en ai pas.", personality: "Sage" },
+        { text: "Je m’en fiche.", personality: "Rebelle" },
         { text: "Certains restent.", personality: "Équilibré" },
         { text: "Ils finissent par sortir.", personality: "Malicieux" },
-        { text: "Je m’en fiche.", personality: "Rebelle" },
         { text: "Tout le monde sait déjà.", personality: "Chaotique" },
     ],
     },
     {
     text: "Quand quelqu’un te juge :",
     choices: [
+        { text: "Je rigole.", personality: "Malicieux" },
+        { text: "Je m’en fiche.", personality: "Rebelle" },
         { text: "Il aurait des raisons.", personality: "Impur" },
         { text: "Ça me touche.", personality: "Sage" },
         { text: "Je relativise.", personality: "Équilibré" },
-        { text: "Je rigole.", personality: "Malicieux" },
-        { text: "Je m’en fiche.", personality: "Rebelle" },
         { text: "Je le provoque.", personality: "Chaotique" },
     ],
     },
@@ -78,10 +80,10 @@ export const questions = [
     {
     text: "Quand tu fais une bêtise :",
     choices: [
+        { text: "J’en ris.", personality: "Malicieux" },
         { text: "J’assume totalement.", personality: "Impur" },
         { text: "Je culpabilise.", personality: "Sage" },
         { text: "Je relativise.", personality: "Équilibré" },
-        { text: "J’en ris.", personality: "Malicieux" },
         { text: "Je recommence.", personality: "Rebelle" },
         { text: "Je fais pire.", personality: "Chaotique" },
     ],
@@ -90,11 +92,11 @@ export const questions = [
     text: "Ton rapport au flirt :",
     choices: [
         { text: "C’est mon langage.", personality: "Impur" },
-        { text: "Je suis mal à l’aise.", personality: "Sage" },
-        { text: "Quand ça se présente.", personality: "Équilibré" },
         { text: "Pour le fun.", personality: "Malicieux" },
         { text: "Sans retenue.", personality: "Rebelle" },
         { text: "Même sans le vouloir.", personality: "Chaotique" },
+        { text: "Je suis mal à l’aise.", personality: "Sage" },
+        { text: "Quand ça se présente.", personality: "Équilibré" },
     ],
     },
     {
@@ -112,9 +114,9 @@ export const questions = [
     text: "Ton téléphone, quelqu’un peut le prendre ?",
     choices: [
         { text: "Surtout pas.", personality: "Impur" },
+        { text: "Après un tri rapide.", personality: "Malicieux" },
         { text: "Oui.", personality: "Sage" },
         { text: "Oui mais vite.", personality: "Équilibré" },
-        { text: "Après un tri rapide.", personality: "Malicieux" },
         { text: "Je m’en fiche.", personality: "Rebelle" },
         { text: "Bonne chance.", personality: "Chaotique" },
     ],
@@ -125,9 +127,10 @@ export const questions = [
         { text: "J’en rajoute.", personality: "Impur" },
         { text: "Je calme.", personality: "Sage" },
         { text: "Je regarde.", personality: "Équilibré" },
-        { text: "Je provoque un peu.", personality: "Malicieux" },
         { text: "Je pousse.", personality: "Rebelle" },
         { text: "Je déclenche.", personality: "Chaotique" },
+        { text: "Je provoque un peu.", personality: "Malicieux" },
+
     ],
     },
     {
@@ -166,11 +169,11 @@ export const questions = [
     {
     text: "Tu te définis plutôt comme :",
     choices: [
+        { text: "Libre.", personality: "Rebelle" },
         { text: "Assumé·e.", personality: "Impur" },
         { text: "Raisonnable.", personality: "Sage" },
         { text: "Humain·e.", personality: "Équilibré" },
         { text: "Taquin·e.", personality: "Malicieux" },
-        { text: "Libre.", personality: "Rebelle" },
         { text: "Imprévisible.", personality: "Chaotique" },
     ],
     },
@@ -179,19 +182,19 @@ export const questions = [
     choices: [
         { text: "Oups.", personality: "Impur" },
         { text: "Rien à signaler.", personality: "Sage" },
-        { text: "Des hauts et des bas.", personality: "Équilibré" },
-        { text: "Des bons souvenirs.", personality: "Malicieux" },
         { text: "Des choix.", personality: "Rebelle" },
         { text: "Des preuves à effacer.", personality: "Chaotique" },
+        { text: "Des hauts et des bas.", personality: "Équilibré" },
+        { text: "Des bons souvenirs.", personality: "Malicieux" },
     ],
     },
     {
     text: "Ta réaction face à l’ennui :",
     choices: [
         { text: "Je fais une connerie.", personality: "Impur" },
-        { text: "Je m’occupe.", personality: "Sage" },
         { text: "Je change d’activité.", personality: "Équilibré" },
         { text: "Je provoque.", personality: "Malicieux" },
+        { text: "Je m’occupe.", personality: "Sage" },
         { text: "Je pars.", personality: "Rebelle" },
         { text: "Je crée le chaos.", personality: "Chaotique" },
     ],
@@ -199,12 +202,12 @@ export const questions = [
     {
     text: "Ton rapport aux sous-entendus :",
     choices: [
-    { text: "Je les comprends très bien.", personality: "Impur" },
-    { text: "Je fais semblant de ne pas voir.", personality: "Sage" },
-    { text: "Ça dépend de la situation.", personality: "Équilibré" },
     { text: "Je les adore.", personality: "Malicieux" },
     { text: "Je les provoque.", personality: "Rebelle" },
     { text: "Je vais trop loin.", personality: "Chaotique" },
+    { text: "Je les comprends très bien.", personality: "Impur" },
+    { text: "Je fais semblant de ne pas voir.", personality: "Sage" },
+    { text: "Ça dépend de la situation.", personality: "Équilibré" },
     ],
     },
 ];

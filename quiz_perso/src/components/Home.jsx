@@ -11,6 +11,7 @@ function Home({ onSelectQuiz }) {
             <button onClick={() => onSelectQuiz("perso")}>Quiz Personnalité</button>
             <button onClick={() => onSelectQuiz("food")}>Quiz Nourriture</button>
             <button onClick={() => onSelectQuiz("cat")}>Quiz Chat</button>
+            <button onClick={() => onSelectQuiz("purety")}>Quiz Pureté</button>
         </div>
         </div>
     );
